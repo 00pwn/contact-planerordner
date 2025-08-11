@@ -1,0 +1,368 @@
+/* ==== Maße wie bei euren bestehenden Karten ==== */
+:root{
+  --card-w: 354px;
+  --card-h: 1023.13px;
+
+  /* Corporate Colors */
+  --blue-dark: #0559a6;  /* RAL5005 */
+  --blue-light: #009fe3; /* RAL5015 */
+  --gray: #b6c0c6;       /* RAL7040 */
+}
+
+/* ==== Grundlayout ==== */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  width: 100%;
+  font-family: "Segoe UI", sans-serif;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  padding: 16px 10px;
+}
+
+/* ==== Karte mit Welle ==== */
+.card {
+  position: relative;
+  width: 100%; /* passt sich an */
+  max-width: 420px; /* aber nie breiter als 420px */
+  margin: 0 auto; /* zentriert auf der Seite */
+  background:
+    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+    url("images/wn-welle.png") no-repeat center bottom;
+  background-size: cover; /* Welle groß genug skalieren */
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.12);
+  overflow: hidden;
+}
+
+/* ==== Header mit Logos ==== */
+.header { text-align: center; color: #0559a6; }
+.image-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  padding: 20px 22px 10px;
+}
+
+/* ==== Broschürenbild ==== */
+.brochure{
+  display: flex;
+  justify-content: center;
+  padding: 6px 12px 12px;
+}
+.brochure img{
+  width: 94%;
+  max-width: calc(100% - 24px);   /* statt calc(var(--card-w) - 24px) */
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,.12));
+  border-radius: 6px;
+}
+
+/* ==== Blauer Balken ==== */
+.bar{
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--blue-dark);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: .3px;
+  text-align: center; /* Schrift im Balken zentrieren */
+}
+
+/* ==== Kontakte – mit dezenten Trennlinien ==== */
+.contacts{
+  padding: 8px 14px 6px;
+}
+.contact{
+  padding: 10px 2px 12px;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+.contacts .contact:last-child {
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+.contact h3{
+  margin: 4px 0 2px;
+  font-size: 17px;
+  font-weight: 800;
+  color:  #0559a6;
+}
+.subtitle{
+  margin: 0 0 8px;
+  color: #1f2937;
+  font-size: 13px;
+}
+
+.row{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 5px 0 4px;
+}
+
+.label{
+  color: #6b7280; /* grau für "Mobil", "E-Mail" */
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 56px;
+}
+.slash{
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* Klickbare „Pills“ in dunkelblau */
+.pill{
+  background: none;
+  color:  #0559a6;
+  text-decoration: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  display: inline;
+  gap: 6px;
+  box-shadow: none;
+}
+.pill:hover {
+text-decoration: underline; /* beim Hover unterstreichen */
+}
+
+.label i {
+  color: #0559a6; /* Firmenblau für Icons */
+}
+
+/* ==== Footer ==== */
+.footer {
+  padding: 10px 14px 14px;
+  font-size: 12px;
+  text-align: center; /* zentriert alles im Footer */
+}
+.footer .brand{
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+.footer .company {
+  margin: 6px 0 8px;
+  font-weight: normal; /* stellt sicher, dass PURATOR nicht fett ist */
+}
+.footer p{ margin: 6px 0; }
+
+.links{ margin-top: 8px; }
+.link-strong{
+  color: var(--blue-dark);
+  text-decoration: none;
+  font-weight: 700;
+}
+.link-strong:hover{ text-decoration: underline; }
+.link-muted{
+  color: #6b7280;
+  text-decoration: none;
+}
+.link-muted:hover{ text-decoration: underline; }
+.sep{ color:#6b7280; }
+
+.links i {
+  margin-right: 6px;
+  color: #0559a6; /* Dunkelblau */
+  font-size: 14px; /* Icon-Größe */
+}
+
+.link-strong {
+  color: #0559a6;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.link-strong:hover {
+  text-decoration: underline;
+}
+
+.link-muted {
+  color: #6b7280;
+  text-decoration: none;
+}
+
+.link-muted:hover {
+  text-decoration: underline;
+}
+
+.sep {
+  color: #6b7280;
+}
+
+/* ==== Buttons fix unten rechts IN der Karte (sicher übersteuern) ==== */
+.card { position: relative; } /* hast du schon, zur Sicherheit nochmal */
+
+.card .floating-buttons {
+  position: absolute !important;
+  right: 16px !important;
+  bottom: 16px !important;
+  top: auto !important;
+  left: auto !important;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 5;
+}
+
+.card .fab {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #0559a6;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  border: none;
+}
+.card .fab:hover { filter: brightness(1.1); }
+
+:root{
+  --blue-dark: #0559a6;   /* Firmenblau Karte */
+  --blue-wn:   #0559a6;   /* Blau wie bei Denis Catic */
+}
+
+/* Grundlayout */
+*{ box-sizing: border-box; }
+body{
+  margin:0;
+  width:100%;
+  font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+  background:#f4f4f4;
+  display:flex;
+  justify-content:center;
+  padding:16px 10px;
+}
+
+/* Karte mit Welle */
+.card{
+  position:relative;
+  width:100%;
+  max-width:420px;
+  margin:0 auto;
+  background:
+    linear-gradient(rgba(255,255,255,.85), rgba(255,255,255,.85)),
+    url("images/wn-welle.png") no-repeat center bottom;
+  background-size:cover;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  overflow:hidden;
+}
+
+/* optionaler Overlay, falls verwendet */
+.card-overlay{
+  position:absolute; inset:0;
+  background:rgba(255,255,255,.85);
+  pointer-events:none; z-index:1;
+}
+.card > *:not(.card-overlay){ position:relative; z-index:2; }
+
+/* Header / Logos */
+.header{ text-align:center; color:var(--blue-wn); }
+.image-container{
+  display:flex; justify-content:center; align-items:center;
+  gap:32px;                      /* Abstand der Logos */
+  padding:20px 22px 10px;
+}
+
+/* Broschüre */
+.brochure{ display:flex; justify-content:center; padding:6px 12px 12px; }
+.brochure img{
+  width:94%; max-width:calc(100% - 24px);
+  height:auto; display:block;
+  filter:drop-shadow(0 6px 12px rgba(0,0,0,.12));
+  border-radius:6px;
+}
+
+/* Balken */
+.bar{
+  margin:0; padding:12px 14px;
+  background:var(--blue-dark); color:#fff;
+  font-size:16px; font-weight:800; letter-spacing:.3px;
+  text-align:center;
+}
+
+/* Kontakte */
+.contacts{ padding:8px 14px 6px; }
+.contact{ padding:10px 2px 12px; border-bottom:1px solid rgba(0,0,0,.08); }
+.contacts .contact:last-child{ border-bottom:1px solid rgba(0,0,0,.08); }
+
+.contact h3{
+  margin:4px 0 2px; font-size:18px; font-weight:800;
+  color:#0559a6;               /* Namen in Denis-Blau */
+}
+.subtitle{ margin:0 0 8px; color:#1f2937; font-size:13px; }
+
+.row{ display:flex; align-items:center; flex-wrap:wrap; gap:6px; margin:5px 0 4px; }
+.label{ color:#6b7280; font-size:12px; display:inline-flex; align-items:center; gap:6px; min-width:56px; }
+.label i{ color:#0559a6; }     /* Icons in Denis-Blau */
+.slash{ color:#6b7280; font-weight:600; }
+
+/* Links (Telefon/E-Mail) dunkelblau als Textlinks */
+.pill{
+  background:none; color:#0042cc; text-decoration:none;
+  padding:0; border-radius:0; font-size:13px; line-height:1.4;
+}
+.pill:hover{ text-decoration:underline; }
+
+/* Footer */
+.footer{ padding:10px 14px 14px; font-size:12px; text-align:center; }
+.footer .company{ margin:6px 0 8px; font-weight:normal; }
+.links{ margin-top:8px; }
+.links i{ margin-right:6px; color:#0559a6; font-size:14px; }
+.link-strong{ color:#0559a6; text-decoration:none; font-weight:700; }
+.link-strong:hover{ text-decoration:underline; }
+.link-muted{ color:#6b7280; text-decoration:none; }
+.link-muted:hover{ text-decoration:underline; }
+.sep{ color:#6b7280; }
+
+/* Floating Buttons + Menüs */
+.floating-buttons{
+  position:absolute; right:16px; bottom:16px;
+  display:flex; flex-direction:column; gap:12px; z-index:5;
+}
+
+/* Details/summary als FAB */
+.fab-menu{ position:relative; }
+.fab-menu > summary{
+  list-style:none; cursor:pointer; border:none; outline:none;
+}
+.fab-menu > summary::-webkit-details-marker{ display:none; }
+
+/* runde Buttons */
+.fab{
+  width:54px; height:54px; border-radius:50%;
+  background:var(--blue-dark); color:#fff;
+  display:grid; place-items:center; font-size:20px;
+  box-shadow:0 6px 12px rgba(0,0,0,.2); border:none;
+}
+.fab:hover{ filter:brightness(1.06); }
+
+/* Menü-Popover */
+.fab-menu .menu{
+  position:absolute; right:62px; bottom:0;
+  min-width:240px; background:#fff; border-radius:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  padding:10px; display:none;
+}
+.fab-menu[open] .menu{ display:block; }
+
+.fab-menu .menu a{
+  display:block; padding:8px 10px; border-radius:8px;
+  color:#0b1b2b; text-decoration:none; font-size:14px;
+}
+.fab-menu .menu a:hover{ background:#f3f6ff; }
+.fab-menu .menu hr{ border:none; height:1px; background:#e7e7e7; margin:8px 0; }
+.fab-menu .menu strong{ display:block; padding:4px 10px 6px; color:#6b7280; font-size:12px; }
