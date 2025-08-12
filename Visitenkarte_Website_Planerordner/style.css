@@ -166,14 +166,14 @@ body {
 
 /* === Floating-Buttons: immer sichtbar, rechts mittig === */
 .floating-buttons{
-  position: fixed !important;   /* fix am Viewport, nicht in der Karte */
+  position: fixed !important;
   right: 16px !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  z-index: 9999;                /* über allem */
+  z-index: 9999;
   pointer-events: none;         /* Container klick-durchlässig */
 }
 
@@ -183,27 +183,41 @@ body {
   position: relative;
 }
 
-/* Summary-Button (ohne Dreieck) */
-.fab {
+/* --- Summary/FAB: harte Resets + perfekte Zentrierung --- */
+/* Marker/Dreieck ausblenden (alle Engines) */
+summary.fab::-webkit-details-marker { display: none; }
+summary.fab::marker { content: ""; }
+
+/* summary komplett neutralisieren und als Kreis-Button aufbauen */
+summary.fab{
+  all: unset;                   /* Nimmt summary die UA-Styles */
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;          /* Icon exakt mittig */
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
   background: #0559a6;          /* euer Dunkelblau */
-  color: #fff;                  /* weißes Icon/Text */
-  font-weight: 700;             /* fett – falls Text */
+  color: #fff;                  /* weißes Icon */
   font-size: 22px;
-  border: none;
-  box-shadow: 0 6px 18px rgba(0,0,0,.2);
+  font-weight: 700;
   cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,.2);
 }
-.fab:hover { filter: brightness(1.1); }
-.fab:focus { outline: 2px solid rgba(5,89,166,.35); outline-offset: 2px; }
 
-/* Standard-Dreieck bei <summary> ausblenden */
-.fab::-webkit-details-marker { display: none; }
-.fab { list-style: none; }
+/* Fokus sichtbar */
+summary.fab:focus-visible{
+  outline: 2px solid rgba(5,89,166,.35);
+  outline-offset: 2px;
+}
+
+/* Icon selbst block + keine Pointer-Events */
+summary.fab i,
+summary.fab svg{
+  display: block;
+  line-height: 1;
+  pointer-events: none;
+}
 
 /* aufgeklapptes Menü – klappt nach links auf */
 .fab-menu > .menu{
@@ -219,7 +233,7 @@ body {
   display: none;
   z-index: 10000;
 }
-.fab-menu[open] > .menu { display: block; }
+.fab-menu[open] > .menu{ display: block; }
 
 /* Zeilen im Teilen-Menü (blauer Button rechts) */
 .share-row{
@@ -233,7 +247,7 @@ body {
 .btn-share-blue{
   background:#0559a6;
   color:#fff;
-  font-weight:700;              /* fett */
+  font-weight:700;
   text-decoration:none;
   padding:8px 12px;
   border-radius:8px;
@@ -260,33 +274,4 @@ body {
     bottom: calc(100% + 10px);
     max-width: min(90vw, 360px);
   }
-}
-
-/* Summary-Marker und Listeneigenschaften entfernen */
-.fab::-webkit-details-marker { display: none; }
-.fab::marker { content: ""; }
-.fab { list-style: none; }
-
-/* Zentrierung des Inhalts im runden Button */
-.fab {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #0559a6;
-  color: #fff;
-  font-size: 22px;
-  font-weight: bold;
-  border: none;
-  box-shadow: 0 6px 18px rgba(0,0,0,.2);
-  cursor: pointer;
-}
-
-.fab i {
-  line-height: 1;
-  pointer-events: none;
 }
