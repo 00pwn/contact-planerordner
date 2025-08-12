@@ -164,37 +164,48 @@ body {
 .link-muted:hover{ text-decoration: underline; }
 .sep{ color:#6b7280; }
 
-/* ==== Floating Buttons fixiert (Viewport) ==== */
+/* === Floating-Buttons: immer sichtbar, rechts mittig === */
 .floating-buttons{
-  position: fixed;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
+  position: fixed !important;   /* fix am Viewport, nicht in der Karte */
+  right: 16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  z-index: 9999;
-  pointer-events: none;      /* Container klick-durchlässig */
+  z-index: 9999;                /* über allem */
+  pointer-events: none;         /* Container klick-durchlässig */
 }
-.floating-buttons .fab-menu{ pointer-events: auto; }
 
-/* runder Haupt-Button */
-.fab{
+/* jedes Menü wieder klickbar machen */
+.floating-buttons .fab-menu{
+  pointer-events: auto;
+  position: relative;
+}
+
+/* Summary-Button (ohne Dreieck) */
+.fab {
   width: 56px;
   height: 56px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: var(--blue-dark);
-  color:#fff;
+  background: #0559a6;          /* euer Dunkelblau */
+  color: #fff;                  /* weißes Icon/Text */
+  font-weight: 700;             /* fett – falls Text */
   font-size: 22px;
   border: none;
   box-shadow: 0 6px 18px rgba(0,0,0,.2);
   cursor: pointer;
 }
+.fab:hover { filter: brightness(1.1); }
+.fab:focus { outline: 2px solid rgba(5,89,166,.35); outline-offset: 2px; }
 
-/* aufklappendes Menü */
-.fab-menu{ position: relative; }
+/* Standard-Dreieck bei <summary> ausblenden */
+.fab::-webkit-details-marker { display: none; }
+.fab { list-style: none; }
+
+/* aufgeklapptes Menü – klappt nach links auf */
 .fab-menu > .menu{
   position: absolute;
   right: calc(100% + 10px);
@@ -206,10 +217,11 @@ body {
   box-shadow: 0 12px 28px rgba(0,0,0,.18);
   padding: 10px;
   display: none;
+  z-index: 10000;
 }
-.fab-menu[open] > .menu{ display: block; }
+.fab-menu[open] > .menu { display: block; }
 
-/* Zeilen im Teilen-Menü */
+/* Zeilen im Teilen-Menü (blauer Button rechts) */
 .share-row{
   display:flex;
   align-items:center;
@@ -219,9 +231,9 @@ body {
 }
 .contact-name{ font-weight:600; }
 .btn-share-blue{
-  background: var(--blue-dark);
+  background:#0559a6;
   color:#fff;
-  font-weight:700;
+  font-weight:700;              /* fett */
   text-decoration:none;
   padding:8px 12px;
   border-radius:8px;
@@ -234,13 +246,13 @@ body {
   padding:8px 6px;
 }
 
-/* Mobile: Buttons nach unten rechts */
+/* Mobile: unten rechts statt mittig */
 @media (max-width: 680px){
   .floating-buttons{
-    top: auto;
-    transform: none;
-    bottom: 16px;
-    right: 16px;
+    top: auto !important;
+    transform: none !important;
+    bottom: 16px !important;
+    right: 16px !important;
   }
   .fab-menu > .menu{
     right: 0;
