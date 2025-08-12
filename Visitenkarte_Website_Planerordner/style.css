@@ -328,68 +328,98 @@ body{
 .link-muted:hover{ text-decoration:underline; }
 .sep{ color:#6b7280; }
 
-/* Floating Buttons + Menüs */
+/* --- Floating Buttons fixiert rechts --- */
 .floating-buttons{
-  position:absolute; right:16px; bottom:16px;
-  display:flex; flex-direction:column; gap:12px; z-index:5;
-}
-
-/* Details/summary als FAB */
-.fab-menu{ position:relative; }
-.fab-menu > summary{
-  list-style:none; cursor:pointer; border:none; outline:none;
-}
-.fab-menu > summary::-webkit-details-marker{ display:none; }
-
-/* runde Buttons */
-.fab{
-  width:54px; height:54px; border-radius:50%;
-  background:var(--blue-dark); color:#fff;
-  display:grid; place-items:center; font-size:20px;
-  box-shadow:0 6px 12px rgba(0,0,0,.2); border:none;
-}
-.fab:hover{ filter:brightness(1.06); }
-
-/* Menü-Popover */
-.fab-menu .menu{
-  position:absolute; right:62px; bottom:0;
-  min-width:240px; background:#fff; border-radius:10px;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
-  padding:10px; display:none;
-}
-.fab-menu[open] .menu{ display:block; }
-
-.fab-menu .menu a{
-  display:block; padding:8px 10px; border-radius:8px;
-  color:#0b1b2b; text-decoration:none; font-size:14px;
-}
-.fab-menu .menu a:hover{ background:#f3f6ff; }
-.fab-menu .menu hr{ border:none; height:1px; background:#e7e7e7; margin:8px 0; }
-.fab-menu .menu strong{ display:block; padding:4px 10px 6px; color:#6b7280; font-size:12px; }
-
-.share-row {
+  position: fixed;            /* bleibt beim Scrollen sichtbar */
+  right: 16px;                /* Abstand vom rechten Rand */
+  top: 50%;                   /* vertikal mittig */
+  transform: translateY(-50%);
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 6px;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;              /* über dem Inhalt */
+  pointer-events: none;       /* Container klick-durchlässig */
 }
 
-.contact-name {
-  font-size: 13px;
-  font-weight: 600;
+/* jedes Menü einzeln wieder klickbar machen */
+.floating-buttons .fab-menu{
+  pointer-events: auto;
 }
 
-.btn-share-blue {
-  background: #0559a6; /* Firmen-Dunkelblau */
-  color: white !important; /* Textfarbe immer weiß */
-  font-weight: bold;
-  padding: 4px 10px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 12px;
-  display: inline-block;
+/* runder Haupt-Button */
+.fab{
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background:#0559a6;         /* euer Dunkelblau */
+  color:#fff;
+  font-size: 22px;
+  border: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,.2);
+  cursor: pointer;
 }
 
-.btn-share-blue:hover {
-  filter: brightness(1.15);
+/* geöffnete Menüs als Karte */
+.fab-menu{
+  position: relative;
+}
+.fab-menu > .menu{
+  position: absolute;
+  right: calc(100% + 10px);   /* Menü klappt nach links auf */
+  top: 0;
+  min-width: 260px;
+  max-width: 320px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+  padding: 10px;
+  display: none;
+}
+.fab-menu[open] > .menu{
+  display: block;
+}
+
+/* Zeilen im Teilen-Menü (blauer Button rechts) */
+.share-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:8px 4px;
+}
+.contact-name{
+  font-weight:600;
+}
+.btn-share-blue{
+  background:#0559a6;
+  color:#fff;                 /* weißer Text */
+  font-weight:700;            /* fett */
+  text-decoration:none;
+  padding:8px 12px;
+  border-radius:8px;
+  white-space:nowrap;
+}
+
+/* Speichern-Menü Links */
+.save-menu .menu a{
+  display:block;
+  padding:8px 6px;
+}
+
+/* Mobile: Buttons nach unten rechts verlegen */
+@media (max-width: 680px){
+  .floating-buttons{
+    top: auto;
+    transform: none;
+    bottom: 16px;
+    right: 16px;
+  }
+  .fab-menu > .menu{
+    right: 0;                 /* Menü unter den Button */
+    top: auto;
+    bottom: calc(100% + 10px);
+    max-width: min(90vw, 360px);
+  }
 }
