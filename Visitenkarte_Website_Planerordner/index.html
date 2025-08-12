@@ -10,10 +10,8 @@
 <body>
 
   <article class="card" aria-label="Visitenkarte Umwelttechnik">
-    <!-- Halbtransparenter Schleier (optional) -->
     <div class="card-overlay"></div>
 
-    <!-- Header mit Logos -->
     <header class="header">
       <div class="image-container">
         <img src="images/Logo_WN.png" width="140" height="60" alt="Logo Wallner & Neubert" />
@@ -21,15 +19,12 @@
       </div>
     </header>
 
-    <!-- Broschürenbild -->
     <section class="brochure">
       <img src="images/Broschuerenuebersicht.png" alt="Broschürenübersicht">
     </section>
 
-    <!-- Blauer Balken -->
     <h2 class="bar">UMWELTTECHNIK – ANSPRECHPARTNER</h2>
 
-    <!-- Kontakte -->
     <section class="contacts">
       <!-- 1 -->
       <div class="contact">
@@ -53,7 +48,7 @@
         <p class="subtitle">Umwelttechnik<br>technische Leitung</p>
         <div class="row">
           <span class="label"><i class="fa-solid fa-phone"></i> Mobil</span>
-          <a class="pill" href="tel:+436648173907">+43 664 8173907</a>
+          <a class="pill" href="tel:+436648173984">+43 664 8173984</a>
           <span class="slash">/</span>
           <a class="pill" href="tel:+4350513255">+43 50513-255</a>
         </div>
@@ -95,6 +90,34 @@
 
       <!-- 5 -->
       <div class="contact">
+        <h3>Enes Karabulut</h3>
+        <p class="subtitle">Umwelttechnik<br>technische Beratung</p>
+        <div class="row">
+          <span class="label"><i class="fa-solid fa-phone"></i> Büro</span>
+          <a class="pill" href="tel:+4350513237">+43 50513-237</a>
+        </div>
+        <div class="row">
+          <span class="label"><i class="fa-solid fa-envelope"></i> E-Mail</span>
+          <a class="pill" href="mailto:enes.karabulut@pwn.at">enes.karabulut@pwn.at</a>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="contact">
+        <h3>Herbert Wolf</h3>
+        <p class="subtitle">Umwelttechnik<br>Verkauf Außendienst</p>
+        <div class="row">
+          <span class="label"><i class="fa-solid fa-phone"></i> Mobil</span>
+          <a class="pill" href="tel:+436648173988">+43 664 8173988</a>
+        </div>
+        <div class="row">
+          <span class="label"><i class="fa-solid fa-envelope"></i> E-Mail</span>
+          <a class="pill" href="mailto:herbert.wolf@pwn.at">herbert.wolf@pwn.at</a>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="contact">
         <h3>Christopher Knebel</h3>
         <p class="subtitle">Leitung Werkstätte und Sonderbau</p>
         <div class="row">
@@ -110,7 +133,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
       <p class="company">
         PURATOR by<br>
@@ -122,7 +144,6 @@
         <a class="link-strong" href="https://maps.app.goo.gl/4zY97iCYTsYS3G8n9" target="_blank" rel="noopener noreferrer">
           <i class="fa-solid fa-location-dot"></i> AUF KARTE ZEIGEN
         </a><br>
-
         <a class="link-strong" href="https://www.pwn.at" target="_blank" rel="noopener noreferrer">
           <i class="fa-solid fa-globe"></i> www.pwn.at
         </a>
@@ -131,70 +152,47 @@
       </p>
     </footer>
 
-<!-- Floating Buttons mit Menüs (einzige Buttons) -->
-<div class="floating-buttons">
-<!-- TEILEN -->
-<details class="fab-menu share-menu">
-  <summary class="fab" aria-label="Kontakt teilen">
-    <i class="fa-solid fa-share-nodes"></i>
-  </summary>
-  <div class="menu" role="menu" aria-label="Teilen">
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+      <!-- TEILEN -->
+      <details class="fab-menu share-menu">
+        <summary class="fab" aria-label="Kontakt teilen">
+          <i class="fa-solid fa-share-nodes"></i>
+        </summary>
+        <div class="menu" role="menu" aria-label="Teilen">
+          <div class="share-row"><span class="contact-name">Alle Kontakte</span><a class="btn-share-blue" href="javascript:navigator.share({title:'Alle Kontakte', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Sammel_Kontaktdaten.vcf'})">Teilen</a></div>
+          <hr>
+          <div class="share-row"><span class="contact-name">Markus Wenzl</span><a class="btn-share-blue" href="javascript:navigator.share({title:'Markus Wenzl', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Markus_Wenzl_Kontaktdaten.vcf'})">Teilen</a></div>
+          <div class="share-row"><span class="contact-name">Denis Catic</span><a class="btn-share-blue" href="javascript:navigator.share({title:'Denis Catic', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Denis_Catic_Kontaktdaten.vcf'})">Teilen</a></div>
+          <div class="share-row"><span class="contact-name">Marko Peic</span><a class="btn-share-blue" href="javascript:navigator.share({title:'Marko Peic', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Marko_Peic_Kontaktdaten.vcf'})">Teilen</a></div>
+          <div class="share-row"><span class="contact-name">Florian Liebentritt</span><a class="btn-share-blue" href="javascript:navigator.share({title:'Florian Liebentritt', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Florian_Liebentritt_Kontaktdaten.vcf'})">Teilen</a></div>
+          <div class="share-row"><span class="contact-name">Enes Karabulut</span><a class="btn-share-blue" href="javascript:navigator.share({title:'Enes Karabulut', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Enes_Karabulut_Kontaktdaten.vcf'})">Teilen</a></div>
+          <div class="share-row"><span class="contact-name">Herbert Wolf</span><a class="btn-share-blue" href="javascript:navigator.share({title:'Herbert Wolf', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Herbert_Wolf_Kontaktdaten.vcf'})">Teilen</a></div>
+          <div class="share-row"><span class="contact-name">Christopher Knebel</span><a class="btn-share-blue" href="javascript:navigator.share({title:'Christopher Knebel', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Christopher_Knebel_Kontaktdaten.vcf'})">Teilen</a></div>
+        </div>
+      </details>
 
-    <!-- Alle Kontakte -->
-    <div class="share-row">
-      <span class="contact-name">Alle Kontakte</span>
-      <a class="btn-share-blue" href="javascript:navigator.share({title:'Alle Kontakte', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Sammel_Kontaktdaten.vcf'})">Teilen</a>
+      <!-- SPEICHERN -->
+      <details class="fab-menu save-menu">
+        <summary class="fab" aria-label="Kontakt speichern">
+          <i class="fa-solid fa-user-plus"></i>
+        </summary>
+        <div class="menu" role="menu" aria-label="Speichern">
+          <a role="menuitem" href="/vcf_Datei/Planerordner_Sammel_Kontaktdaten.vcf" download>
+            <i class="fa-solid fa-users"></i> Alle Kontakte (.vcf)
+          </a>
+          <hr>
+          <strong>Einzeln speichern</strong>
+          <a role="menuitem" href="/vcf_Datei/Planerordner_Markus_Wenzl_Kontaktdaten.vcf" download>Markus Wenzl</a>
+          <a role="menuitem" href="/vcf_Datei/Planerordner_Denis_Catic_Kontaktdaten.vcf" download>Denis Catic</a>
+          <a role="menuitem" href="/vcf_Datei/Planerordner_Marko_Peic_Kontaktdaten.vcf" download>Marko Peic</a>
+          <a role="menuitem" href="/vcf_Datei/Planerordner_Florian_Liebentritt_Kontaktdaten.vcf" download>Florian Liebentritt</a>
+          <a role="menuitem" href="/vcf_Datei/Planerordner_Enes_Karabulut_Kontaktdaten.vcf" download>Enes Karabulut</a>
+          <a role="menuitem" href="/vcf_Datei/Planerordner_Herbert_Wolf_Kontaktdaten.vcf" download>Herbert Wolf</a>
+          <a role="menuitem" href="/vcf_Datei/Planerordner_Christopher_Knebel_Kontaktdaten.vcf" download>Christopher Knebel</a>
+        </div>
+      </details>
     </div>
-    <hr>
-
-    <!-- Einzelkontakte -->
-    <div class="share-row">
-      <span class="contact-name">Markus Wenzl</span>
-      <a class="btn-share-blue" href="javascript:navigator.share({title:'Markus Wenzl', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Markus_Wenzl_Kontaktdaten.vcf'})">Teilen</a>
-    </div>
-
-    <div class="share-row">
-      <span class="contact-name">Denis Catic</span>
-      <a class="btn-share-blue" href="javascript:navigator.share({title:'Denis Catic', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Denis_Catic_Kontaktdaten.vcf'})">Teilen</a>
-    </div>
-
-    <div class="share-row">
-      <span class="contact-name">Marko Peic</span>
-      <a class="btn-share-blue" href="javascript:navigator.share({title:'Marko Peic', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Marko_Peic_Kontaktdaten.vcf'})">Teilen</a>
-    </div>
-
-    <div class="share-row">
-      <span class="contact-name">Florian Liebentritt</span>
-      <a class="btn-share-blue" href="javascript:navigator.share({title:'Florian Liebentritt', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Florian_Liebentritt_Kontaktdaten.vcf'})">Teilen</a>
-    </div>
-
-    <div class="share-row">
-      <span class="contact-name">Christopher Knebel</span>
-      <a class="btn-share-blue" href="javascript:navigator.share({title:'Christopher Knebel', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Christopher_Knebel_Kontaktdaten.vcf'})">Teilen</a>
-    </div>
-
-  </div>
-</details>
-
-  <!-- SPEICHERN -->
-  <details class="fab-menu save-menu">
-    <summary class="fab" aria-label="Kontakt speichern">
-      <i class="fa-solid fa-user-plus"></i>
-    </summary>
-    <div class="menu" role="menu" aria-label="Speichern">
-      <a role="menuitem" href="/vcf_Datei/Planerordner_Sammel_Kontaktdaten.vcf" download>
-        <i class="fa-solid fa-users"></i> Alle Kontakte (.vcf)
-      </a>
-      <hr>
-      <strong>Einzeln speichern</strong>
-      <a role="menuitem" href="/vcf_Datei/Planerordner_Markus_Wenzl_Kontaktdaten.vcf" download>Markus Wenzl</a>
-      <a role="menuitem" href="/vcf_Datei/Planerordner_Denis_Catic_Kontaktdaten.vcf" download>Denis Catic</a>
-      <a role="menuitem" href="/vcf_Datei/Planerordner_Marko_Peic_Kontaktdaten.vcf" download>Marko Peic</a>
-      <a role="menuitem" href="/vcf_Datei/Planerordner_Florian_Liebentritt_Kontaktdaten.vcf" download>Florian Liebentritt</a>
-      <a role="menuitem" href="/vcf_Datei/Planerordner_Christopher_Knebel_Kontaktdaten.vcf" download>Christopher Knebel</a>
-    </div>
-  </details>
-</div>
   </article>
 
 </body>
