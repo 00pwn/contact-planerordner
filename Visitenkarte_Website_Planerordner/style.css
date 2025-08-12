@@ -370,43 +370,25 @@ body{
 .share-row {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 6px;
+  justify-content: space-between;
   margin-bottom: 6px;
 }
 
 .contact-name {
-  flex: 1;
   font-size: 13px;
   font-weight: 600;
 }
 
-.menu a {
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 12px;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.btn-wa {
-  background: #25D366; /* WhatsApp Grün */
+.btn-share-blue {
+  background: #0559a6; /* Firmen-Dunkelblau */
   color: white;
   font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 12px;
 }
 
-.btn-sms {
-  background: #3b82f6; /* Blau */
-  color: white;
+.btn-share-blue:hover {
+  filter: brightness(1.15);
 }
-
-.btn-mail {
-  background: #ec4899; /* Pink */
-  color: white;
-}
-
-.btn-share {
-  background: #facc15; /* Gelb */
-  color: black;
-}
-
