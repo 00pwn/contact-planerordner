@@ -261,3 +261,32 @@ body {
     max-width: min(90vw, 360px);
   }
 }
+
+/* Summary-Marker und Listeneigenschaften entfernen */
+.fab::-webkit-details-marker { display: none; }
+.fab::marker { content: ""; }
+.fab { list-style: none; }
+
+/* Zentrierung des Inhalts im runden Button */
+.fab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #0559a6;
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,.2);
+  cursor: pointer;
+}
+
+.fab i {
+  line-height: 1;
+  pointer-events: none;
+}
