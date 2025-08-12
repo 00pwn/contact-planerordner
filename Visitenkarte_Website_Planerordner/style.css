@@ -366,3 +366,47 @@ body{
 .fab-menu .menu a:hover{ background:#f3f6ff; }
 .fab-menu .menu hr{ border:none; height:1px; background:#e7e7e7; margin:8px 0; }
 .fab-menu .menu strong{ display:block; padding:4px 10px 6px; color:#6b7280; font-size:12px; }
+
+.share-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.contact-name {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.menu a {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-wa {
+  background: #25D366; /* WhatsApp Grün */
+  color: white;
+  font-weight: bold;
+}
+
+.btn-sms {
+  background: #3b82f6; /* Blau */
+  color: white;
+}
+
+.btn-mail {
+  background: #ec4899; /* Pink */
+  color: white;
+}
+
+.btn-share {
+  background: #facc15; /* Gelb */
+  color: black;
+}
+
