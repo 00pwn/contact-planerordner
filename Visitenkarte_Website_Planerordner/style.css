@@ -275,3 +275,34 @@ summary.fab svg{
     max-width: min(90vw, 360px);
   }
 }
+
+/* === Fix: FAB-Icons wirklich mittig === */
+.floating-buttons details > summary.fab{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 56px !important;
+  height: 56px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  background: #0559a6 !important;
+  color: #fff !important;
+  line-height: 0 !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+.floating-buttons details > summary.fab::-webkit-details-marker{ display:none !important; }
+.floating-buttons details > summary.fab::marker{ content:"" !important; }
+
+/* HIER der entscheidende Reset: kein absolutes Positionieren mehr */
+.floating-buttons details > summary.fab i{
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  display: block !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  font-size: 22px !important;
+  pointer-events: none !important;
+}
