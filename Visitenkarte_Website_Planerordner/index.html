@@ -160,15 +160,20 @@
           <i class="fa-solid fa-share-nodes"></i>
         </summary>
         <div class="menu" role="menu" aria-label="Teilen">
-          <div class="share-row"><span class="contact-name">Alle Kontakte</span><a class="btn-share-blue" href="javascript:navigator.share({title:'Alle Kontakte', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Sammel_Kontaktdaten.vcf'})">Teilen</a></div>
+          <div class="share-row">
+            <span class="contact-name">Alle Kontakte</span>
+            <a class="btn-share-blue" href="#"
+               data-title="Alle Kontakte"
+               data-url="https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Sammel_Kontaktdaten.vcf">Teilen</a>
+          </div>
           <hr>
-          <div class="share-row"><span class="contact-name">Markus Wenzl</span><a class="btn-share-blue" href="javascript:navigator.share({title:'Markus Wenzl', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Markus_Wenzl_Kontaktdaten.vcf'})">Teilen</a></div>
-          <div class="share-row"><span class="contact-name">Denis Catic</span><a class="btn-share-blue" href="javascript:navigator.share({title:'Denis Catic', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Denis_Catic_Kontaktdaten.vcf'})">Teilen</a></div>
-          <div class="share-row"><span class="contact-name">Marko Peic</span><a class="btn-share-blue" href="javascript:navigator.share({title:'Marko Peic', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Marko_Peic_Kontaktdaten.vcf'})">Teilen</a></div>
-          <div class="share-row"><span class="contact-name">Florian Liebentritt</span><a class="btn-share-blue" href="javascript:navigator.share({title:'Florian Liebentritt', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Florian_Liebentritt_Kontaktdaten.vcf'})">Teilen</a></div>
-          <div class="share-row"><span class="contact-name">Enes Karabulut</span><a class="btn-share-blue" href="javascript:navigator.share({title:'Enes Karabulut', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Enes_Karabulut_Kontaktdaten.vcf'})">Teilen</a></div>
-          <div class="share-row"><span class="contact-name">Herbert Wolf</span><a class="btn-share-blue" href="javascript:navigator.share({title:'Herbert Wolf', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Herbert_Wolf_Kontaktdaten.vcf'})">Teilen</a></div>
-          <div class="share-row"><span class="contact-name">Christopher Knebel</span><a class="btn-share-blue" href="javascript:navigator.share({title:'Christopher Knebel', url:'https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Christopher_Knebel_Kontaktdaten.vcf'})">Teilen</a></div>
+          <div class="share-row"><span class="contact-name">Markus Wenzl</span><a class="btn-share-blue" href="#" data-title="Markus Wenzl" data-url="https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Markus_Wenzl_Kontaktdaten.vcf">Teilen</a></div>
+          <div class="share-row"><span class="contact-name">Denis Catic</span><a class="btn-share-blue" href="#" data-title="Denis Catic" data-url="https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Denis_Catic_Kontaktdaten.vcf">Teilen</a></div>
+          <div class="share-row"><span class="contact-name">Marko Peic</span><a class="btn-share-blue" href="#" data-title="Marko Peic" data-url="https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Marko_Peic_Kontaktdaten.vcf">Teilen</a></div>
+          <div class="share-row"><span class="contact-name">Florian Liebentritt</span><a class="btn-share-blue" href="#" data-title="Florian Liebentritt" data-url="https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Florian_Liebentritt_Kontaktdaten.vcf">Teilen</a></div>
+          <div class="share-row"><span class="contact-name">Enes Karabulut</span><a class="btn-share-blue" href="#" data-title="Enes Karabulut" data-url="https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Enes_Karabulut_Kontaktdaten.vcf">Teilen</a></div>
+          <div class="share-row"><span class="contact-name">Herbert Wolf</span><a class="btn-share-blue" href="#" data-title="Herbert Wolf" data-url="https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Herbert_Wolf_Kontaktdaten.vcf">Teilen</a></div>
+          <div class="share-row"><span class="contact-name">Christopher Knebel</span><a class="btn-share-blue" href="#" data-title="Christopher Knebel" data-url="https://pwn-contact-planerordner.netlify.app/vcf_Datei/Planerordner_Christopher_Knebel_Kontaktdaten.vcf">Teilen</a></div>
         </div>
       </details>
 
@@ -194,6 +199,30 @@
       </details>
     </div>
   </article>
+
+  <!-- Kleines Skript für Teilen-Fallback -->
+  <script>
+    (function () {
+      function mailtoFallback(title, url) {
+        var subject = encodeURIComponent("Kontakt " + title);
+        var body = encodeURIComponent("VCF:\n" + url);
+        window.location.href = "mailto:?subject=" + subject + "&body=" + body;
+      }
+      document.addEventListener("click", function (e) {
+        var el = e.target.closest(".btn-share-blue");
+        if (!el) return;
+        e.preventDefault();
+        var title = el.getAttribute("data-title") || "Kontakt";
+        var url   = el.getAttribute("data-url");
+        if (!url) return;
+        if (navigator.share) {
+          navigator.share({ title: title, url: url }).catch(function(){});
+        } else {
+          mailtoFallback(title, url);
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>
