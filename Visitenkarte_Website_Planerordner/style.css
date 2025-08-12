@@ -381,12 +381,13 @@ body{
 
 .btn-share-blue {
   background: #0559a6; /* Firmen-Dunkelblau */
-  color: white;
+  color: white !important; /* Textfarbe immer weiß */
   font-weight: bold;
   padding: 4px 10px;
   border-radius: 6px;
   text-decoration: none;
   font-size: 12px;
+  display: inline-block;
 }
 
 .btn-share-blue:hover {
